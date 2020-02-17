@@ -119,6 +119,7 @@ class BoolQ(Resource):
     @dt.doc("Returns a random example from the boolq dataset")
     @dt.response(200, 'OK')
     @dt.response(500, 'INTERNAL SERVER ERROR')
+    @dt.response(404, 'NOT FOUND')
     @dt.expect(data_parser)
     def get(self):
         args = data_parser.parse_args()

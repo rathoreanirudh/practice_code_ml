@@ -11,6 +11,11 @@ def fixture_1():
     return [1, 2, 3, 4, 5, 6, 7]
 
 
+@fixture
+def fixture_2():
+    return {1: 2}
+
+
 def test_answer(fixture_1):
     for items in fixture_1:
         if items == 1:
@@ -27,5 +32,10 @@ def test_answer(fixture_1):
             assert func(items) == 7
         elif items == 7:
             assert func(items) == 8
+
+
+def test_answer_2(fixture_2):
+    for key in fixture_2:
+        assert func(key) == fixture_2[key]
 
 
