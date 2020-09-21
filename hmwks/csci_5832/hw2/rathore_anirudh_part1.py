@@ -111,17 +111,21 @@ def add_unk_to_vocab():
 			vocab_dict["<UNK>"] += 1.0
 
 
-def create_model(data):
+def create_model(data, add_unk=False):
 	for sentence in data:
 		# print(f"Adding sentence: {sentence} to the model count")
 		# Splitting the pre-tokenized training data wo create a word list and appending start and end token
 		word_list = sentence.split()
 		word_list.append("</s>")
 		word_list.insert(0, "<s>")
+		# Don't bias the data with empty strings in the training data
+		if len(word_list) == 2:
+			continue
 		# print(word_list)
 		create_vocab(word_list)
 		create_bigram_vocab(word_list)
-	add_unk_to_vocab()
+	if add_unk:
+		add_unk_to_vocab()
 	# print("Model Created and Loaded!")
 
 
@@ -158,3 +162,25 @@ if __name__ == "__main__":
 	create_model(data=train_data)
 	vocab_size = len(vocab_dict.keys())
 	evaluate_model(data=test_data, vocab_size=vocab_size)
+
+
+"""
+How to handle unknown words in test sample. 
+I add a UNK token to the vocab and with every word in vocab except <s> and </s>
+create 2 bigrams as follows:
+	1. (word_in_vocab, <UNK>)
+	2. (<UNK>, word_in_vocab)
+	and increase the count of UNK in the vocab by 2
+For <s>
+	add a bigram as (<s>, <UNK>)
+	and increase the count of UNK in the vocab by 1
+For </s>
+	add a bigram as (<UNK>, </s>)
+	and increase the count of UNK in the vocab by 1
+	
+Now, this was for creating the language model.
+
+For evaluating:
+Replace all the tokens in the evaluating sentence which are not in the vocab by UNK and 
+then evaluate the sentence as is
+"""

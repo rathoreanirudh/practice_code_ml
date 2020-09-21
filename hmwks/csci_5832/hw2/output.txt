@@ -1,0 +1,14 @@
+Evaluating sentence: When trouble or persecution comes because of the word , they quickly fall away .
+
+Probability: 2.1287113069116275e-47, Normalized probability: 0.001797195105370055, Perplexity: 15.570915340884753
+Evaluating sentence: The people were amazed when they saw the mute speaking , the crippled made well , the lame walking and the blind seeing .
+
+Probability: 2.0324756397902788e-88, Normalized probability: 0.000423869238061123, Perplexity: 29.159130860938347
+Evaluating sentence: When Pilate saw that he was getting nowhere , but that instead an uproar was starting , he took water and washed his hands in front of the crowd .
+
+Probability: 9.502785972715494e-108, Normalized probability: 0.0004524371417075689, Perplexity: 28.344747792301703
+Evaluating sentence: As they were coming down the mountain , lord gave them orders not to tell anyone what they had seen until the son of Man had risen from the dead .
+
+Probability: 1.1692224575895758e-151, Normalized probability: 2.668701674477491e-05, Perplexity: 96.90198191373031
+Evaluating sentence: A certain man from Cyrene , Simon , the father of Alexander and Rufus , was passing by on his way in from the country .
+Probability: 1.8107918229358712e-106, Normalized probability: 0.0001672998583943973, Perplexity: 43.66314693018646
